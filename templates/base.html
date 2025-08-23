@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}Mi App Flask{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    
-    <h1>holas</h1>
+    <header>
+        <h1>Mi Aplicación con Flask</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a> |
+            <a href="{{ url_for('about') }}">Acerca de</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Aquí se insertará contenido específico de cada página -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi App Flask</p>
+    </footer>
 </body>
 </html>
